@@ -1,0 +1,5 @@
+chess==1.9.4
+cohere==3.6.0
+ipython==8.10.0
+langchain==0.0.93
+openai==0.26.3
