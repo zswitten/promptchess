@@ -110,7 +110,7 @@ class PromptPlayer:
         print("Completion:", completion)
         return self.parse_completion(completion)
 
-def simulate_game(white_player, black_player, board=None):
+def simulate_game(white_player, black_player, board=None, max_moves=99):
     if not board:
         board = chess.Board()
     white_player.board = board
@@ -119,6 +119,7 @@ def simulate_game(white_player, black_player, board=None):
         white_player: {True: 0, False: 0},
         black_player: {True: 0, False: 0}
     }
+    moves = 0
     while not board.outcome():
         if board.turn:
             active_player = white_player
@@ -131,6 +132,9 @@ def simulate_game(white_player, black_player, board=None):
         # Comment out these if not running in notebook
         clear_output()
         display(svg.board(board, size=500, lastmove=san_move))
+        moves += 1
+        if moves > max_moves:
+            break
     return board, num_random_moves
 
 def export_game_to_pgn(game):
