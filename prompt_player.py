@@ -115,7 +115,7 @@ def simulate_game(white_player, black_player, board=None, max_moves=99):
         board = chess.Board()
     white_player.board = board
     black_player.board = board
-    random_moves = {
+    num_random_moves = {
         white_player: {True: 0, False: 0},
         black_player: {True: 0, False: 0}
     }
